@@ -100,3 +100,130 @@ WHERE BusinessEntityID = 26
 
 
 --MINUTO 28:06 - 
+
+
+ --CONTAR QUANTIDADE LINHAS
+SELECT count (*)
+FROM person.Person
+
+ --CONTAR QUANTIDADE TÍTULOS
+SELECT count (title)
+FROM person.Person
+
+
+
+ --CONTAR QUANTIDADE TÍTULOS DISTINTOS
+SELECT count (DISTINCT title)
+FROM person.Person
+
+
+
+ --CONTAR QUANTIDADE DE PRODUTOS
+SELECT count (*)
+FROM Production.Products
+
+ --CONTAR QUANTOS TAMANHOS DE PRODUTOS CADASTRADOS
+SELECT count (size)
+FROM Production.Products
+
+
+
+ --CONTAR QUANTOS TAMANHOS DE PRODUTOS CADASTRADOS
+SELECT count (DISTINCT size)
+FROM Production.Products
+
+
+
+--SELECIONA OS TOP BASEADO NA QTD INFORMADA
+SELECT TOP 10 *
+FROM Production.Product
+
+
+-- ORDER BY (SINTAXE)
+SELECT coluna1, coluna2
+FROM tabela
+ORDER BY coluna1 asc/desc
+
+
+
+SELECT *
+FROM person.Person
+ORDER BY FirstName desc
+
+
+SELECT *
+FROM person.Person
+ORDER BY FirstName asc, LastName desc
+
+
+SELECT FirstName, LastName
+FROM person.Person
+ORDER BY FirstName asc, LastName desc
+
+
+
+
+SELECT FirstName, LastName, MiddleName
+FROM person.Person
+ORDER BY MiddleName asc
+
+
+
+SELECT TOP 4 name, productnumber
+FROM Production.product
+ORDER BY ProductID asc
+
+
+
+SELECT *
+FROM Production.Product
+WHERE ListPrice between 1000 and 1500;
+
+
+
+SELECT *
+FROM HumanResources.Employee
+WHERE HireDate BETWEEN '2009/01/01' and '2010/01/01'
+ORDER BY HireDate
+
+
+Nós usamos o operador IN junto com o WHERE, 
+para verificar se um valor corresponde com qualquer valor passado na lista de valores
+
+valor IN (valor1, valor2)
+valor IN (SELECT valor FROM nomeDATabela)
+
+
+
+SELECT *
+FROM Person.Person
+WHERE BusinessEntityID IN (2,7,13)
+
+
+SELECT *
+FROM Person.Person
+WHERE BusinessEntityID NOT IN (2,7,13)
+
+--Vamos dizer que você quer encontrar uma pessoa no banco de dados que você sabe que o nome dela era ovi... alguma coisa
+SELECT *
+FROM Person.Person
+WHERE FirstName like 'ovi%'
+
+
+ 
+--Quando lembra só do final
+SELECT *
+FROM Person.Person
+WHERE FirstName like '%to'
+
+ 
+--Para localizar o nome não importa se esteja no começo ou no final, tudo que tem "essa"
+SELECT *
+FROM Person.Person
+WHERE FirstName like '%essa%'
+
+
+--Para localizar o nome, depois do "o" não aparece outros caracteres "o" no nome por causa do _ ( não é case sensitive)
+SELECT *
+FROM Person.Person
+WHERE FirstName like '%ro_'
